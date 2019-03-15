@@ -8,7 +8,7 @@ export class CdkStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
 		super(scope, id, props);
 
-			//objects for access parameters
+		//objects for access parameters
 		const construct = new cdk.Construct(this, 'construct');
 		const node = new cdk.ConstructNode(construct, this, 'node');
 
@@ -18,13 +18,13 @@ export class CdkStack extends cdk.Stack {
 
 		const bucket = new s3.Bucket(this, 'BlueGreenBucket');
 
-	  const handler = new lambda.Function(this, 'BlueGreenLambda', {
-      runtime: lambda.Runtime.Python36,  
-      code: lambda.Code.directory('resources'),
-			handler: 'blue_green.lambda_handler',
-			environment: {
-        BUCKET: bucket.bucketName
-      }
+		const handler = new lambda.Function(this, 'BlueGreenLambda', {
+		runtime: lambda.Runtime.Python36,  
+		code: lambda.Code.directory('resources'),
+				handler: 'blue_green.lambda_handler',
+				environment: {
+					BUCKET: bucket.bucketName
+				}
 		});
 
 		bucket.grantReadWrite(handler.role);
@@ -59,7 +59,6 @@ export class CdkStack extends cdk.Stack {
 		});
 
 		deployStage.addAction(lambdaAction);
-
 
 
 	}}
