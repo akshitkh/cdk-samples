@@ -3,7 +3,7 @@
 
 Creates an API Gateway API with a POST Method, a SQS queue, and a Lambda function. Requests to the API are enqueued into the SQS queue, which triggers the Lambda function.
 
-![Image description](https://github.com/akshitkh/aws-cdk-examples/blob/master/python/api-sqs-lambda/architecture.png)
+![Architecture](python/api-sqs-lambda/architecture.png)
 
 The cdk.json file tells the CDK Toolkit how to execute your app.
 
