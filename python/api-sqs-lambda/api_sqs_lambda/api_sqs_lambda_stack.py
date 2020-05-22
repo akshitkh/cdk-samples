@@ -71,5 +71,8 @@ class ApiSqsLambdaStack(core.Stack):
             code=_lambda.Code.asset('lambda'),
         )
 
+        #Create an SQS event source for Lambda
         sqs_event_source = lambda_event_source.SqsEventSource(queue)
+
+        #Add SQS event source to the Lambda function
         sqs_lambda.add_event_source(sqs_event_source)
